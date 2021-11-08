@@ -13,8 +13,9 @@ class FlightService{
         $data = [];
         foreach ($flights as $flight){
             $entry = [
-                'flightNumber' => $flight->flightNumber,
-                'status' => $flight->status
+                'flightNumber-' => $flight->flightNumber,
+                'status' => $flight->status,
+                'href' => route('flights.show', ['id' => $flight->flightNumber])
             ];
             $data[] = $entry;
         }
