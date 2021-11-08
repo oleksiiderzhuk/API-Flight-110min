@@ -6,8 +6,8 @@ use App\Flight;
 
 class FlightService{
     public function getFlights(){
-        return Flight::all();
-        // return $this->filterFlights(Flight::all()); 
+        // return Flight::all(); 
+        return $this->filterFlights(Flight::all()); 
     }
 
     protected function filterFlights($flights){
@@ -15,8 +15,9 @@ class FlightService{
         foreach ($flights as $flight){
             $entry = [
                 'flightNumber' => $flight->flightNumber,
-                'status' => $flight->status,
-                'href' => route('flights.show', ['id' => $flight->flightNumber])
+                'status' => $flight->status
+                // ,
+                // 'href' => route('flights.show', ['id' => $flight->flightNumber]),
             ];
             $data[] = $entry;
         }
