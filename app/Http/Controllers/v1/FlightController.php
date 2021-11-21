@@ -24,6 +24,7 @@ class FlightController extends Controller
     {
         //call service
         //return data
+        // $data = $this->flights->getAllFlights();
         $data = $this->flights->getFlights();
 
         return response()->json($data);
